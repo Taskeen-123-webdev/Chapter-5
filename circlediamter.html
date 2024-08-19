@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TN-Circle Properties Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+        }
+        input, button {
+            margin: 10px;
+            padding: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tn-Circle Properties Calculator</h1>
+    
+    <label for="radiusInput">Enter Radius:</label>
+    <input type="number" id="radiusInput" placeholder="Enter radius" step="any"><br>
+
+    <button onclick="calculateProperties()">Calculate Properties</button>
+
+    <p id="circumference"></p>
+    <p id="area"></p>
+
+    <script>
+        function calculateProperties() {
+            
+            const radius = parseFloat(document.getElementById('radiusInput').value);
+
+           
+            if (isNaN(radius) || radius <= 0) {
+                alert('Please enter a valid radius greater than 0.');
+                return;
+            }
+
+            
+            const pi = 3.142;
+
+            
+            const circumference = 2 * pi * radius;
+
+            
+            const area = pi * radius * radius;
+
+            
+            document.getElementById('circumference').innerText = `The circumference is ${circumference.toFixed(2)}`;
+            document.getElementById('area').innerText = `The area is ${area.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TN-Shopping Cart Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 50%;
+        }
+        table, th, td {
+            border: 1px solid #000;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        button {
+            margin: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Shopping Cart Receipt</h1>
+    
+    <button onclick="checkout()">Proceed to Checkout</button>
+    
+    <div id="receipt"></div>
+
+    <script>
+        function checkout() {
+            
+            const priceItem1 = 50; 
+            const priceItem2 = 75; 
+            
+            
+            const quantityItem1 = 3; 
+            const quantityItem2 = 2; 
+            
+          
+            const shippingCharges = 20;
+            
+           
+            const totalCostItem1 = priceItem1 * quantityItem1;
+            const totalCostItem2 = priceItem2 * quantityItem2;
+            const subTotal = totalCostItem1 + totalCostItem2;
+            const totalCost = subTotal + shippingCharges;
+            
+            
+            const receipt = `
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                    <tr>
+                        <td>Item 1</td>
+                        <td>${quantityItem1}</td>
+                        <td>$${priceItem1}</td>
+                        <td>$${totalCostItem1}</td>
+                    </tr>
+                    <tr>
+                        <td>Item 2</td>
+                        <td>${quantityItem2}</td>
+                        <td>$${priceItem2}</td>
+                        <td>$${totalCostItem2}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Subtotal</td>
+                        <td>$${subTotal}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Shipping Charges</td>
+                        <td>$${shippingCharges}</td>
+                    </tr>
+                    <tr>
+                        <th colspan="3">Total Cost</th>
+                        <th>$${totalCost}</th>
+                    </tr>
+                </table>
+            `;
+            
+            document.getElementById('receipt').innerHTML = receipt;
+        }
+    </script>
+</body>
+</html>
